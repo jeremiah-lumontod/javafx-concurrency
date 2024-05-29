@@ -37,7 +37,8 @@ build/
 ### Mac OS ###
 .DS_Store
 
- .idea/**
+.idea/
+.idea/**
 .mvn/**
 mvnw
 mvnw.cmd
