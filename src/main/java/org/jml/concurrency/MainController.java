@@ -68,12 +68,12 @@ public class MainController {
         try {
 
             task = new EvenNumTask(1, 20, 1000);
-            task.setOnSucceeded(e -> worker.getValue().setAll(task.getValue()));
-            task.run();
+            //task.setOnSucceeded(e -> worker.getValue().setAll(task.getValue()));
+            //task.run();
             //bindToWorker(worker);
-/*            ExecutorService executorService = Executors.newFixedThreadPool(1);
+            ExecutorService executorService = Executors.newFixedThreadPool(1);
             executorService.execute(task);
-            executorService.shutdown();*/
+            executorService.shutdown();
 
         }catch(Exception e) {
             e.printStackTrace();
@@ -95,22 +95,22 @@ public class MainController {
     }
 
     private void bindToWorker(Worker<ObservableList<Integer>> worker) {
-        title.textProperty().bind(worker.titleProperty());
-        message.textProperty().bind(worker.messageProperty());
-        running.textProperty().bind(worker.runningProperty().asString());
-        state.textProperty().bind(worker.stateProperty().asString());
-        totalWork.textProperty().bind(new When(worker.totalWorkProperty().isEqualTo(-1))
+        title.textProperty().bind(task.titleProperty());
+        message.textProperty().bind(task.messageProperty());
+        running.textProperty().bind(task.runningProperty().asString());
+        state.textProperty().bind(task.stateProperty().asString());
+        totalWork.textProperty().bind(new When(task.totalWorkProperty().isEqualTo(-1))
                 .then("Unknown")
-                .otherwise(worker.totalWorkProperty().asString()));
-        workDone.textProperty().bind(new When(worker.workDoneProperty().isEqualTo(-1))
+                .otherwise(task.totalWorkProperty().asString()));
+        workDone.textProperty().bind(new When(task.workDoneProperty().isEqualTo(-1))
                 .then("Unknown")
-                .otherwise(worker.workDoneProperty().asString()));
-        progress.textProperty().bind(new When(worker.progressProperty().isEqualTo(-1))
+                .otherwise(task.workDoneProperty().asString()));
+        progress.textProperty().bind(new When(task.progressProperty().isEqualTo(-1))
                 .then("Unknown")
-                .otherwise(worker.progressProperty().asString()));
-        progressBar.progressProperty().bind(worker.progressProperty());
-        value.textProperty().bind(worker.valueProperty().asString());
-        exception.textProperty().bind(worker.exceptionProperty().asString());
+                .otherwise(task.progressProperty().asString()));
+        progressBar.progressProperty().bind(task.progressProperty());
+        value.textProperty().bind(task.valueProperty().asString());
+        exception.textProperty().bind(task.exceptionProperty().asString());
     }
 
 
