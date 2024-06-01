@@ -65,7 +65,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <!--mainClass>org.jml.concurrency/org.jml.concurrency.HelloApplication</mainClass-->
-                            <mainClass>org.jml.concurrency/org.jml.concurrency.MessagingDemo</mainClass>
+                            <mainClass>org.jml.concurrency/org.jml.concurrency.Main</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
